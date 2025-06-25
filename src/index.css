@@ -1,0 +1,410 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #c1ff00;
+  --primary-dark: #a9e600;
+  --secondary: #141414;
+  --secondary-light: #1e1e1e;
+  --text-color: #FFFFFF;
+  --accent: #6D28D9;
+}
+
+/* Enable Widget Text Color Override */
+#enable-toolbar-trigger,
+#enable-toolbar * {
+  color: #000000 !important;
+}
+
+#enable-toolbar button,
+#enable-toolbar [role="button"] {
+  color: #000000 !important;
+}
+
+#enable-toolbar .enable-text,
+#enable-toolbar .enable-title {
+  color: #000000 !important;
+}
+
+/* Override for bottom section text */
+#enable-toolbar .enable-footer * {
+  color: #000000 !important;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  color: var(--text-color);
+  background-color: var(--secondary);
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* Hero Animation */
+.hero-animation {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero-animation {
+    display: block;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+  }
+
+  .floating-element {
+    position: absolute;
+    background: var(--secondary-light);
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(193, 255, 0, 0.1);
+    animation: float 6s ease-in-out infinite;
+    backdrop-filter: blur(8px);
+  }
+
+  .element-form {
+    width: 200px;
+    height: 160px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .element-button {
+    width: 120px;
+    height: 40px;
+    top: 60%;
+    left: 40%;
+    animation-delay: 1s;
+  }
+
+  .element-screen {
+    width: 140px;
+    height: 240px;
+    top: 30%;
+    left: 60%;
+    animation-delay: 2s;
+  }
+
+  .element-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    animation: floatAndSpin 8s ease-in-out infinite;
+  }
+
+  .icon-1 {
+    top: 10%;
+    left: 40%;
+    animation-delay: 0.5s;
+  }
+
+  .icon-2 {
+    top: 70%;
+    left: 20%;
+    animation-delay: 1.5s;
+  }
+
+  .icon-3 {
+    top: 40%;
+    left: 70%;
+    animation-delay: 2.5s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(1.02);
+    }
+  }
+
+  @keyframes floatAndSpin {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(10deg);
+    }
+  }
+
+  .element-form::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60%;
+    height: 12px;
+    background: rgba(193, 255, 0, 0.2);
+    border-radius: 6px;
+  }
+
+  .element-form::after {
+    content: '';
+    position: absolute;
+    top: 44px;
+    right: 20px;
+    width: 40%;
+    height: 12px;
+    background: rgba(193, 255, 0, 0.15);
+    border-radius: 6px;
+  }
+
+  .element-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 60%;
+    height: 8px;
+    background: rgba(193, 255, 0, 0.3);
+    border-radius: 4px;
+    transform: translateY(-50%);
+  }
+
+  .element-screen::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    left: 15px;
+    height: 140px;
+    background: rgba(193, 255, 0, 0.1);
+    border-radius: 6px;
+  }
+}
+
+/* Animated stars background */
+.stars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: translateZ(0);
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: var(--primary);
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 4px var(--primary);
+  animation: star-animation 6s infinite ease-in-out;
+  filter: brightness(1.15);
+}
+
+/* Optimized star positions for better distribution */
+.star:nth-child(1) { left: 5%; top: 15%; animation-delay: 0.5s; }
+.star:nth-child(2) { left: 15%; top: 35%; animation-delay: 1.5s; }
+.star:nth-child(3) { left: 25%; top: 55%; animation-delay: 2.5s; }
+.star:nth-child(4) { left: 35%; top: 75%; animation-delay: 3.5s; }
+.star:nth-child(5) { left: 45%; top: 25%; animation-delay: 4.5s; }
+.star:nth-child(6) { left: 55%; top: 45%; animation-delay: 0s; }
+.star:nth-child(7) { left: 65%; top: 65%; animation-delay: 1s; }
+.star:nth-child(8) { left: 75%; top: 85%; animation-delay: 2s; }
+.star:nth-child(9) { left: 85%; top: 5%; animation-delay: 3s; }
+.star:nth-child(10) { left: 95%; top: 95%; animation-delay: 4s; }
+.star:nth-child(11) { left: 10%; top: 80%; animation-delay: 0.7s; }
+.star:nth-child(12) { left: 70%; top: 30%; animation-delay: 1.7s; }
+.star:nth-child(13) { left: 80%; top: 50%; animation-delay: 2.7s; }
+.star:nth-child(14) { left: 30%; top: 70%; animation-delay: 3.7s; }
+.star:nth-child(15) { left: 40%; top: 90%; animation-delay: 4.7s; }
+
+@keyframes star-animation {
+  0% {
+    transform: scale(0) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1) translate(20px, -20px);
+  }
+  100% {
+    transform: scale(0) translate(40px, -40px);
+    opacity: 0;
+  }
+}
+
+/* Scroll animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Page transitions */
+.page-section {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.page-section.entering {
+  opacity: 0;
+}
+
+.page-section.entered {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-400 {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(193, 255, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(193, 255, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(193, 255, 0, 0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Angular background pattern */
+.angular-bg {
+  background-image: linear-gradient(135deg, var(--secondary) 25%, var(--secondary-light) 25%, var(--secondary-light) 50%, var(--secondary) 50%, var(--secondary) 75%, var(--secondary-light) 75%, var(--secondary-light) 100%);
+  background-size: 40px 40px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .stars-container {
+    display: block;
+    opacity: 0.5;
+  }
+  
+  .star {
+    width: 3.5px;
+    height: 3.5px;
+  }
+  
+  @keyframes star-animation {
+    0% {
+      transform: scale(0) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.4;
+      transform: scale(1.1) translate(10px, -10px);
+    }
+    100% {
+      transform: scale(0) translate(20px, -20px);
+      opacity: 0;
+    }
+  }
+}
+
+/* Add highlight animation for notifications */
+@keyframes highlight {
+  0% {
+    background-color: rgba(193, 255, 0, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.highlight-row {
+  animation: highlight 2s ease-out;
+}
+
+/* Position WhatsApp button lower */
+.whatsapp-btn {
+  position: fixed;
+  left: 30px;
+  bottom: 110px;
+  z-index: 1000;
+}
+
+/* Position accessibility button above WhatsApp */
+.accessibility-btn {
+  position: fixed;
+  left: 30px;
+  bottom: 90px;
+  z-index: 1010;
+}
